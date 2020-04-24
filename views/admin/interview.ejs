@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+</head>
+<body>
+    <%- include("nav.ejs") %> 
+    <table border="1">
+        <thead>
+            <th>Order ID</th>
+            <th>Interviewer's Name</th>
+            <th>Applicant's Name</th>
+            <th>Date</th>
+            <th>Information</th>
+            <th>Action</th>
+        </thead>
+        <% for(let i in data) { %>
+            <tr>
+                <td><%= data[i].id %> </td>
+                <td><%= data[i].Interviewer.name %> </td>
+                <td><%= data[i].Medicine.name %> </td>
+                <td><%= data[i].date %> </td>
+                <td><%= data[i].status %> </td>
+                <td>
+                    <form action="/admin/update/<%= data[i].id %>" method="POST">
+                        <button name="status" value="Accept">Accept</button>
+                        <button name="status" value="Deny">Deny</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %> 
+    </table> 
+</body>
+</html>

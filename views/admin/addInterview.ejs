@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1><%= data.name %></h1>
+    <h4>Add Interviewer</h4>
+    <form action="/admin/<%= id %>/interview/add" method="POST">
+        <select name ="InterviewerId">
+            <% for(let i in interviewers) { %> 
+            <option selected>Interviewer</option>
+            <option value=<%= interviewers[i].id %><% if(id && data.InterviewerId == interviewers[i].id) {%> selected <% } %> ><%= interviewers[i].name %></option>
+            <% } %>
+        </select>
+        <select name ="date">
+            <% for(let i in interviewers) { %> 
+            <option selected>Date</option>
+            <option value=<%= interviewers[i].date_available %><% if(id && data.date == interviewers[i].date_available) {%> selected <% } %> ><%= interviewers[i].date_available %></option>
+            <% } %>
+        </select>
+        <button>Create</button>
+    </form>
+</body>
+</html>

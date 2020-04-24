@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+</head>
+<body>
+    <h1>Applicant</h1>
+    <table border="1">
+        <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Departement</th>
+            <th>Position</th>
+            <th>requested_salary</th>
+            <th>Action</th>
+        </thead>
+        <% for(let i in data) {%>
+        <tr>
+            <td><%= data[i].name %> </td>
+            <td><%= data[i].age %> </td>
+            <td><%= data[i].departement %> </td>
+            <td><%= data[i].position %> </td>
+            <td>Rp. <%= data[i].requested_salary %> </td>
+            <td>
+                <div>
+                    <a href="/admin/delete/<%= data[i].id %>">Delete</a>
+                </div>
+                <div>
+                    <a href="/admin/<%= data[i].id %>/interview/add">Add Interviewer</a>
+                </div>
+            </td>
+        </tr>
+        <% } %>  
+    </table>
+</body>
+</html>
